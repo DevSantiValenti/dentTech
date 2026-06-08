@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>DentTech | Servicio tecnico odontologico</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page">
+	<a class="floating-whatsapp" th:href="${configuracionTienda.whatsappLink}" target="_blank" rel="noopener" aria-label="Consultar por WhatsApp">
+		<img src="/img/whatsapp.png" alt="whatsapp">
+	</a>
+	<header class="header">
+		<div class="container header-inner">
+			<a class="brand" href="/servicio-tecnico">
+				<img class="brand-logo" src="/img/denttech-navbar-logo.png" alt="DentTech">
+				<span class="brand-word">DentTech</span>
+			</a>
+			<nav class="nav" aria-label="Navegacion de servicio tecnico">
+				<a href="#servicios">Servicios</a>
+				<a class="nav-home-logo" href="https://electrodentalnea.com.ar" aria-label="Ir a ElectrodentalNea">
+					<img th:src="/img/electrodentallarge.png" alt="ElectrodentalNea">
+				</a>
+				<a href="#proceso">Proceso</a>
+				<a href="#contacto">Contacto</a>
+			</nav>
+			<div class="header-actions">
+				<a class="whatsapp" href="https://wa.me/543624541102">WHATSAPP</a>
+				<a class="btn btn-primary" href="#contacto">Solicitar diagnostico</a>
+			</div>
+		</div>
+	</header>
+
+	<main>
+		<section class="hero container">
+			<div>
+				<p class="kicker">Division de ElectrodentalNea</p>
+				<h1>Servicio tecnico odontologico <span class="accent">especializado</span></h1>
+				<p class="hero-copy">Mantenimiento, reparacion y calibracion de equipos dentales de alta complejidad. Garantizamos la precision que su clinica necesita.</p>
+				<div class="hero-actions">
+					<a class="btn btn-primary" href="#contacto">Solicitar diagnostico</a>
+					<a class="btn btn-glass" href="https://wa.me/543624541102">Hablar por WhatsApp</a>
+				</div>
+			</div>
+			<div class="logo-panel" aria-label="DentTech">
+				<!-- <div> -->
+					<!-- <div class="tooth"></div>
+					<div class="denttech">DentTech</div> -->
+				<!-- </div> -->
+					<img src="/img/denttech-navbar-logo.png" alt="">
+			</div>
+		</section>
+
+		<section class="band">
+			<div class="container grid feature-grid">
+				<article class="glass">
+					<span class="icon">✦</span>
+					<h3>Atencion tecnica especializada</h3>
+					<p>Ingenieros capacitados en las marcas lideres del mercado dental.</p>
+				</article>
+				<article class="glass">
+					<span class="icon">◈</span>
+					<h3>Servicio postventa oficial</h3>
+					<p>Respaldo directo de fabrica y garantia en todos nuestros intervenidos.</p>
+				</article>
+				<article class="glass">
+					<span class="icon">▣</span>
+					<h3>Visitas tecnicas programadas</h3>
+					<p>Mantenimiento preventivo para evitar interrupciones en su consultorio.</p>
+				</article>
+				<article class="glass">
+					<span class="icon">⌁</span>
+					<h3>Cobertura regional</h3>
+					<p>Llegamos a toda la region con logistica propia y tiempos de respuesta minimos.</p>
+				</article>
+			</div>
+		</section>
+
+		<section class="band band-alt" id="servicios">
+			<div class="container">
+				<div class="section-heading">
+					<p class="eyebrow">Especialidades</p>
+					<h2>Servicios de precision</h2>
+				</div>
+				<div class="grid services-grid">
+					<article class="service-card wide">
+						<span class="icon">⌕</span>
+						<h3>Reparacion integral</h3>
+						<p>Solucion de fallas mecanicas y electronicas en equipos de todas las generaciones.</p>
+					</article>
+					<article class="service-card">
+						<span class="icon">◉</span>
+						<h3>Mantenimiento</h3>
+						<p>Prevencion de desgaste critico.</p>
+					</article>
+					<article class="service-card">
+						<span class="icon">⚒</span>
+						<h3>Instalacion</h3>
+						<p>Montaje profesional de clinicas.</p>
+					</article>
+					<article class="service-card">
+						<span class="icon">◎</span>
+						<h3>Diagnostico</h3>
+						<p>Analisis tecnico profundo.</p>
+					</article>
+					<article class="service-card wide">
+						<span class="icon">⚙</span>
+						<h3>Calibracion &amp; repuestos</h3>
+						<p>Ajuste de parametros finos y suministro de piezas originales certificadas.</p>
+					</article>
+					<article class="service-card">
+						<span class="icon">◌</span>
+						<h3>Asistencia</h3>
+						<p>Soporte tecnico on-demand.</p>
+					</article>
+				</div>
+			</div>
+		</section>
+
+		<section class="band" id="equipamiento">
+			<div class="container">
+				<div class="equipment-intro">
+					<div>
+						<p class="eyebrow">Equipamiento</p>
+						<h2>Expertos en tecnologia dental</h2>
+					</div>
+					<p>Capacitados para intervenir una amplia gama de dispositivos odontologicos con instrumental de ultima generacion.</p>
+				</div>
+				<div class="grid equipment-grid">
+					<article class="equipment-card">
+						<div class="equipment-art">
+							<svg viewBox="0 0 200 160" role="img" aria-label="Sillones">
+								<path d="M42 112h96l20 22H33z" fill="#0d3b66" stroke="#66e2f8"/>
+								<path d="M53 84c29-28 67-26 85-10 8 7 5 20-8 22l-76 11c-16 2-22-10-1-23z" fill="#143b55" stroke="#7ae2e2"/>
+								<path d="M143 46l24-18 10 13-25 20zM48 118l-21 20" stroke="#66e2f8" stroke-width="3"/>
+							</svg>
+						</div>
+						<h3>Sillones</h3>
+					</article>
+					<article class="equipment-card">
+						<div class="equipment-art">
+							<svg viewBox="0 0 200 160" role="img" aria-label="Compresores">
+								<rect x="37" y="68" width="126" height="58" rx="28" fill="#12344e" stroke="#66e2f8"/>
+								<circle cx="100" cy="98" r="21" fill="#071b2e" stroke="#7ae2e2"/>
+								<path d="M72 68V48h56v20M31 98H14M186 98h-17" stroke="#66e2f8" stroke-width="3"/>
+							</svg>
+						</div>
+						<h3>Compresores</h3>
+					</article>
+					<article class="equipment-card">
+						<div class="equipment-art">
+							<svg viewBox="0 0 200 160" role="img" aria-label="Autoclaves">
+								<path d="M100 38l34 78H66z" fill="none" stroke="#66e2f8" stroke-width="3"/>
+								<path d="M100 70v36M86 106h28" stroke="#7ae2e2" stroke-width="4"/>
+							</svg>
+						</div>
+						<h3>Autoclaves</h3>
+					</article>
+					<article class="equipment-card">
+						<div class="equipment-art">
+							<svg viewBox="0 0 200 160" role="img" aria-label="Rayos X">
+								<rect x="48" y="44" width="105" height="74" rx="10" fill="#12344e" stroke="#66e2f8"/>
+								<circle cx="100" cy="81" r="28" fill="#0d3b66" stroke="#7ae2e2"/>
+								<circle cx="100" cy="81" r="9" fill="#66e2f8"/>
+								<path d="M157 69h22v28h-22M74 127h52" stroke="#66e2f8" stroke-width="3"/>
+							</svg>
+						</div>
+						<h3>Rayos X</h3>
+					</article>
+				</div>
+				<div class="chip-grid">
+					<div class="chip">◇ Lamparas LED</div>
+					<div class="chip">▣ Micromotores</div>
+					<div class="chip">◌ Rotatorios</div>
+					<div class="chip">✣ Bombas de vacio</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="band band-alt method" id="proceso">
+			<div class="container">
+				<div class="section-heading">
+					<h2>Nuestra metodologia</h2>
+					<p>Tiempos optimizados para que su clinica nunca se detenga.</p>
+				</div>
+				<div class="timeline">
+					<div class="step">
+						<div class="step-number">1</div>
+						<div>
+							<h3>Contacto</h3>
+							<p>Solicitud de servicio via web o WhatsApp.</p>
+						</div>
+					</div>
+					<div class="step">
+						<div class="step-number">2</div>
+						<div>
+							<h3>Evaluacion</h3>
+							<p>Diagnostico inicial presencial o remoto.</p>
+						</div>
+					</div>
+					<div class="step">
+						<div class="step-number">3</div>
+						<div>
+							<h3>Presupuesto</h3>
+							<p>Detalle de tareas y repuestos necesarios.</p>
+						</div>
+					</div>
+					<div class="step">
+						<div class="step-number">4</div>
+						<div>
+							<h3>Reparacion</h3>
+							<p>Ejecucion tecnica con repuestos originales.</p>
+						</div>
+					</div>
+					<div class="step">
+						<div class="step-number">5</div>
+						<div>
+							<h3>Entrega</h3>
+							<p>Puesta en marcha y certificado de garantia.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="container metrics" aria-label="Metricas DentTech">
+			<div class="metric">
+				<strong>+2000</strong>
+				<span>Equipos reparados</span>
+			</div>
+			<div class="metric">
+				<strong>+500</strong>
+				<span>Clientes conformes</span>
+			</div>
+			<div class="metric">
+				<strong>+10</strong>
+				<span>Años de experiencia</span>
+			</div>
+		</section>
+
+		<section class="cta-wrap container" id="contacto">
+			<div class="cta-panel">
+				<h2>¿Tu equipo necesita mantenimiento o reparacion?</h2>
+				<p>No arriesgues la operatividad de su clinica. Contactenos hoy y reciba un diagnostico tecnico profesional en menos de 24 horas.</p>
+				<div class="hero-actions" style="justify-content: center;">
+					<a class="btn btn-primary" th:href="${'mailto:' + configuracionTienda.email}">Solicitar diagnostico ahora</a>
+					<a class="btn btn-glass" href="https://wa.me/543624541102">Consultar por WhatsApp</a>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer class="footer">
+		<div class="container footer-grid">
+			<div>
+				<div class="footer-brand">
+					<span class="brand-mark">D</span>
+					<span>DentTech</span>
+				</div>
+				<p style="margin-top: 20px;">Servicio tecnico odontologico de precision. Division oficial de ElectrodentalNea.</p>
+			</div>
+			<div>
+				<h4>Enlaces</h4>
+				<a href="#">Privacy Policy</a>
+				<a href="#">Terms of Service</a>
+				<a href="#">Service Agreement</a>
+				<a href="#">Support</a>
+			</div>
+			<div>
+				<h4>Servicios</h4>
+				<a href="#servicios">Reparacion sillones</a>
+				<a href="#servicios">Mantenimiento Rayos X</a>
+				<a href="#servicios">Calibracion Autoclaves</a>
+				<a href="#servicios">Instalaciones</a>
+			</div>
+			<div>
+				<h4>Contacto tecnico</h4>
+				<p th:text="${configuracionTienda.direccion}">NEA, Argentina</p>
+				<a th:href="${'mailto:' + configuracionTienda.email}" th:text="${configuracionTienda.email}">info@electrodentalnea.com</a>
+				<a href="https://wa.me/543624541102" th:text="|WhatsApp ${configuracionTienda.whatsapp}|">WhatsApp</a>
+			</div>
+		</div>
+		<div class="container copyright">© 2026 DentTech Premium Dental Technical Service. All rights reserved.</div>
+	</footer>
+</div>
+</body>
+</html>
