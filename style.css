@@ -116,7 +116,7 @@ a {
 .nav {
     display: flex;
     align-items: center;
-    gap: 38px;
+    gap: clamp(18px, 2.6vw, 38px);
     font-family: "Sora", sans-serif;
     font-size: 12px;
     font-weight: 600;
@@ -158,6 +158,54 @@ a {
     font-family: "Sora", sans-serif;
     font-size: 11px;
     font-weight: 700;
+}
+
+.menu-toggle {
+    display: none;
+    width: 44px;
+    height: 44px;
+    flex: 0 0 44px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+    border: 1px solid rgba(102, 226, 248, 0.28);
+    border-radius: 8px;
+    background: rgba(13, 59, 102, 0.36);
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    width: 20px;
+    height: 2px;
+    border-radius: 999px;
+    background: currentColor;
+    transition: transform 180ms ease, opacity 180ms ease;
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+.nav-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 24;
+    background: rgba(0, 15, 32, 0.58);
+    backdrop-filter: blur(3px);
+}
+
+.nav-backdrop[hidden] {
+    display: none;
 }
 
 .whatsapp {
@@ -371,6 +419,108 @@ h1 {
     background: rgba(9, 29, 48, 0.62);
 }
 
+.company-band {
+    position: relative;
+    overflow: hidden;
+}
+
+.company-band::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(90deg, rgba(102, 226, 248, 0.09), transparent 44%),
+        radial-gradient(circle at 82% 16%, rgba(122, 226, 226, 0.14), transparent 28%);
+    pointer-events: none;
+}
+
+.company-grid,
+.mission-vision {
+    position: relative;
+    z-index: 1;
+}
+
+.company-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.12fr) minmax(300px, 0.88fr);
+    gap: clamp(32px, 6vw, 76px);
+    align-items: start;
+}
+
+.company-story h2 {
+    max-width: 760px;
+    margin-bottom: 24px;
+    color: #ffffff;
+    font-size: clamp(32px, 4.6vw, 54px);
+    line-height: 1.04;
+}
+
+.company-story p:not(.eyebrow) {
+    max-width: 790px;
+    margin-bottom: 18px;
+    color: var(--muted);
+    font-size: 16px;
+}
+
+.company-focus {
+    display: grid;
+    gap: 16px;
+}
+
+.focus-card,
+.mission-vision article {
+    border: 1px solid rgba(102, 226, 248, 0.2);
+    border-radius: 8px;
+    background: linear-gradient(135deg, rgba(13, 59, 102, 0.72), rgba(0, 15, 32, 0.82));
+    box-shadow: 0 22px 46px rgba(0, 15, 32, 0.22);
+}
+
+.focus-card {
+    padding: 24px;
+}
+
+.focus-card span {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--primary);
+    font-family: "Sora", sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.focus-card strong {
+    display: block;
+    color: #ffffff;
+    font-family: "Sora", sans-serif;
+    font-size: clamp(18px, 2vw, 23px);
+    line-height: 1.18;
+}
+
+.mission-vision {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 42px;
+}
+
+.mission-vision article {
+    padding: 30px;
+}
+
+.mission-vision h3 {
+    margin-bottom: 14px;
+    color: #ffffff;
+    font-size: clamp(20px, 2.5vw, 28px);
+    line-height: 1.15;
+}
+
+.mission-vision p:last-child {
+    margin-bottom: 0;
+    color: var(--muted);
+}
+
 .grid {
     display: grid;
     gap: 24px;
@@ -452,7 +602,9 @@ h1 {
 }
 
 .section-heading .eyebrow,
-.equipment-intro .eyebrow {
+.equipment-intro .eyebrow,
+.company-story .eyebrow,
+.mission-vision .eyebrow {
     margin-bottom: 10px;
     color: var(--primary);
     font-family: "Sora", sans-serif;
@@ -647,7 +799,7 @@ h1 {
 
 .footer-grid {
     display: grid;
-    grid-template-columns: 1.25fr repeat(3, 1fr);
+    grid-template-columns: 1.25fr repeat(2, 1fr);
     gap: 54px;
 }
 
@@ -666,6 +818,94 @@ h1 {
     margin: 0 0 12px;
     color: var(--muted);
     font-size: 14px;
+}
+
+.footer a.social-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.social-link img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+}
+
+.footer-contact {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns: minmax(280px, 0.82fr) minmax(320px, 1.18fr);
+    gap: clamp(28px, 6vw, 72px);
+    padding-top: 6px;
+}
+
+.contact-address {
+    max-width: 320px;
+}
+
+.footer-email-list {
+    display: grid;
+    gap: 12px;
+    margin: 18px 0;
+}
+
+.footer a.footer-email-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-height: 56px;
+    margin: 0;
+    padding: 0 18px;
+    border: 1px solid rgba(209, 228, 254, 0.24);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.04);
+    color: #ffffff;
+    font-family: "Sora", sans-serif;
+    font-size: clamp(13px, 2.8vw, 16px);
+    font-weight: 700;
+    line-height: 1.25;
+    overflow-wrap: anywhere;
+    transition: border-color 180ms ease, background 180ms ease, transform 180ms ease;
+}
+
+.footer a.footer-email-card:hover {
+    border-color: rgba(102, 226, 248, 0.54);
+    background: rgba(102, 226, 248, 0.08);
+    transform: translateY(-2px);
+}
+
+.mail-icon {
+    display: inline-flex;
+    width: 28px;
+    height: 28px;
+    flex: 0 0 28px;
+    align-items: center;
+    justify-content: center;
+    color: #c9142e;
+}
+
+.mail-icon svg {
+    width: 28px;
+    height: 28px;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 2;
+}
+
+.footer-whatsapp {
+    margin-top: 16px;
+}
+
+.footer-map iframe {
+    display: block;
+    width: 100%;
+    min-height: 260px;
+    border: 0;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.08);
 }
 
 .copyright {
@@ -716,6 +956,15 @@ h1 {
         min-width: 0;
     }
 
+    .company-grid,
+    .mission-vision {
+        grid-template-columns: 1fr;
+    }
+
+    .company-story p:not(.eyebrow) {
+        max-width: 100%;
+    }
+
     .logo-panel {
         min-height: 340px;
     }
@@ -759,6 +1008,92 @@ h1 {
         grid-template-columns: 1fr;
         text-align: left;
     }
+
+    .footer-contact {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+}
+
+@media (max-width: 760px) {
+    body.menu-open {
+        overflow: hidden;
+    }
+
+    .header {
+        z-index: 60;
+    }
+
+    .header-inner {
+        flex-wrap: nowrap;
+        min-height: 70px;
+        padding: 12px 0;
+    }
+
+    .brand {
+        width: auto;
+        justify-content: flex-start;
+        font-size: 22px;
+    }
+
+    .header-actions {
+        display: none;
+    }
+
+    .menu-toggle {
+        position: relative;
+        z-index: 42;
+        display: inline-flex;
+        margin-left: auto;
+    }
+
+    .nav {
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: 36;
+        display: flex;
+        width: min(82vw, 320px);
+        height: 100dvh;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        gap: 0;
+        padding: 92px 22px 28px;
+        border-left: 1px solid rgba(102, 226, 248, 0.22);
+        background: rgba(0, 15, 32, 0.98);
+        box-shadow: -28px 0 60px rgba(0, 0, 0, 0.38);
+        overflow-y: auto;
+        transform: translateX(100%);
+        visibility: hidden;
+        transition: transform 220ms ease, visibility 0s linear 220ms;
+    }
+
+    .nav.is-open {
+        transform: translateX(0);
+        visibility: visible;
+        transition: transform 220ms ease;
+    }
+
+    .nav a {
+        display: flex;
+        align-items: center;
+        min-height: 52px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        color: #ffffff;
+        font-size: 13px;
+        white-space: normal;
+    }
+
+    .nav-home-logo {
+        min-width: 0;
+        justify-content: flex-start;
+    }
+
+    .nav-home-logo img {
+        width: 150px;
+        max-height: 42px;
+    }
 }
 
 @media (max-width: 640px) {
@@ -773,10 +1108,6 @@ h1 {
 
     .header-actions .btn {
         display: none;
-    }
-
-    .nav a {
-        white-space: nowrap;
     }
 
     .brand {
@@ -868,6 +1199,20 @@ h1 {
         min-height: 280px;
     }
 
+    .company-story h2 {
+        font-size: 30px;
+    }
+
+    .company-story p:not(.eyebrow),
+    .mission-vision p:last-child {
+        font-size: 15px;
+    }
+
+    .focus-card,
+    .mission-vision article {
+        padding: 22px;
+    }
+
     .logo-panel>img {
         width: min(88%, 330px);
         max-height: 78%;
@@ -888,5 +1233,15 @@ h1 {
 
     .cta-panel {
         padding: 46px 20px;
+    }
+
+    .footer a.footer-email-card {
+        min-height: 58px;
+        padding: 10px 14px;
+        font-size: 13px;
+    }
+
+    .footer-map iframe {
+        min-height: 230px;
     }
 }
