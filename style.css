@@ -797,7 +797,7 @@ h1 {
 }
 
 .equipment-grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
 }
 
 .glass,
@@ -929,7 +929,7 @@ h1 {
 
 .chip-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 16px;
     margin-top: 18px;
 }
